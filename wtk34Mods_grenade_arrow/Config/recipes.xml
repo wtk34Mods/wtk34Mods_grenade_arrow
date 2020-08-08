@@ -1,0 +1,11 @@
+<recipes>
+
+<append xpath="/recipes">
+<recipe name="ammoArrowGrenade" count="1" craft_area="workbench" craft_time="30">
+    <ingrediant name="thrownGrenade" count="1"/>
+    <ingrediant name="ammoArrowSteelAP"/>
+</recipe>
+
+</append>
+
+</recipes>

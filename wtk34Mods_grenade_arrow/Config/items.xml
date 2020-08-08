@@ -1,0 +1,68 @@
+<items>
+
+<!-- This is the code for the Grenade Arrow -->
+<append xpath="/items">
+	<item name="ammoArrowGrenade">
+		<property name="Extends" value="ammoArrowSteelAP"/>
+		<property name="DisplayType" value="ammoArrowExploding"/>
+		<property name="CustomIcon" value="ammoArrowIron"/>
+		<property name="CustomIconTint" value="FF2B1C"/>
+	<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Bows/WoodenBow/bodkinArrowPrefab.prefab"/>
+	<property name="IsSticky" value="false"/>
+	<property name="Stacknumber" value="75"/>
+	<property name="FuelValue" value="27"/>
+	<property name="EconomicValue" value="165"/>
+	<property name="EconomicBundleSize" value="1"/>
+	<property name="UnlockedBy" value="perkRangersExplodingBolts"/>
+	<property class="Action1">
+		<!--<property name="Explosion.ParticleIndex" value="0"/>  no expl. -->
+		<property name="Gravity" value="-5"/>
+		<property name="Explosion.ParticleIndex" value="13"/>
+		<property name="Explosion.RadiusBlocks" value="5"/>
+		<property name="Explosion.RadiusEntities" value="7"/>
+		<property name="Explosion.DamageBonus.stone" value=".3"/>
+		<property name="Explosion.DamageBonus.metal" value=".1"/>
+		<property name="Explosion.DamageBonus.earth" value="0"/> <!-- should work? -->
+		<property name="Explosion.DamageBonus.wood" value=".5"/>
+		<property name="Explosion.DamageBonus.water" value="0"/>
+		<property name="Explosion.BlastPower" value="175"/>
+	</property>
+	<effect_group name="ammoArrowGrenade" tiered="false"> <!-- ammoArrowExploding -->
+		<passive_effect name="BlockDamage" operation="base_set" value="2"/><display_value name="dExDamageBlock" value="2"/>
+		<passive_effect name="EntityDamage" operation="base_set" value="550"/><display_value name="dExDamageEntity" value="500"/>
+		<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="wood"/>
+		<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+		<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,water"/>
+			<!-- do we have damage modifiers for explosions? -->
+		<passive_effect name="ProjectileVelocity" operation="base_set" value="140"/>
+		<passive_effect name="ProjectileStickChance" operation="perc_set" value=".1"/>
+		<display_value name="dExRadius" value="5"/>
+	</effect_group>
+	</item>
+</append>
+
+<!-- this makes the arrows glow like the spear -->
+
+<append xpath="/items/item[@name='ammoArrowSteelAP']">
+	<property name="StickyMaterial" value="#Other/Items?Weapons/Melee/Spear/Materials/spearIron_sticky.mat"/>
+</append>
+
+<append xpath="/items/item[@name='ammoArrowIron']">
+	<property name="StickyMaterial" value="#Other/Items?Weapons/Melee/Spear/Materials/spearIron_sticky.mat"/>
+</append>
+
+<append xpath="/items/item[@name='ammoArrowStone']">
+	<property name="StickyMaterial" value="#Other/Items?Weapons/Melee/Spear/Materials/spearIron_sticky.mat"/>
+</append>
+
+<append xpath="/items/item[@name='ammoArrowGrenade']">
+    <property name="StickyMaterial" value="@Other/Items?Weapons/Melee/Speer/Materials/spearIron_sticky.mat"/>
+</append>
+
+<!-- This is the code that add's the arrows to the bows -->
+<append xpath="/items/item[@name='gunBowT0PrimitiveBow']/property[@class='Action0']/property[@name='Magazine_items']/@value">,ammoArrowGrenade</append>
+
+<append xpath="/items/item[@name='gunBowT1WoodenBow']/property[@class='Action0']/property[@name='Magazine_items']/@value">,ammoArrowGrenade</append>
+
+<append xpath="/items/item[@name='gunBowT3CompoundBow']/property[@class='Action0']/property[@name='Magazine_items']/@value">,ammoArrowGrenade</append>
+</items>
