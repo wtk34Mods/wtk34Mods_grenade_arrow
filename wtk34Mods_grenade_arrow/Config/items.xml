@@ -28,7 +28,7 @@
 		<property name="Explosion.BlastPower" value="175"/>
 	</property>
 	<effect_group name="ammoArrowGrenade" tiered="false"> <!-- ammoArrowExploding -->
-		<passive_effect name="BlockDamage" operation="base_set" value="2"/><display_value name="dExDamageBlock" value="2"/>
+		<passive_effect name="BlockDamage" operation="base_set" value="10"/><display_value name="dExDamageBlock" value="10"/>
 		<passive_effect name="EntityDamage" operation="base_set" value="550"/><display_value name="dExDamageEntity" value="500"/>
 		<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="wood"/>
 		<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
