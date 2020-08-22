@@ -1,5 +1,0 @@
-Key,File,Type,UsedInMainMenu,NoTranslate,english
-{my_key},{xml_file},{type_of_object},{true/false/null},{true/false/null},"{Localized_Name_Eng}"
-
-ammoArrowGrenade,items,item,,," Grenade Tipped Arrow"
-ammoArrowGrenadeDesc,items,item,,,"A arrow with a explosive tip"
